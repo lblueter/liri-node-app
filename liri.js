@@ -23,6 +23,7 @@ var appendIt = function (a) {
 
 var doIt = function () {
   if (youSay === "concert-this") {
+    if (!input) {input="Disturbed"}
     var queryUrl = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
     request(queryUrl, function (error, response, body) {
       if (error) {
@@ -39,6 +40,7 @@ var doIt = function () {
       appendIt(showData)
     })
   } else if (youSay === "spotify-this-song") {
+    if (!input) {input="The Sign"}
     spotify.search({ type: "track", query: input, limit: 1 }, function (err, data) {
       if (err) {
         return console.log('Error occurred: ' + err);
@@ -55,6 +57,7 @@ var doIt = function () {
     });
   } else if (youSay === "movie-this") {
     var queryUrl = "http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy";
+    if (!input) {input="Mr. Nobody"}
     request(queryUrl, function (error, response, body) {
       if (error) {
         console.log(error)
