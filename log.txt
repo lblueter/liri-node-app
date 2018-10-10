@@ -3,3 +3,25 @@ Song: Mr. Brightside
 Album: Hot Fuss
 URL: https://open.spotify.com/track/7oK9VyNzrYvRFo7nQEYkWN
 ========================================
+Name: The Vic Theatre
+Location: Chicago, IL
+Date: 10/10/2018
+========================================
+Artist: Backstreet Boys
+Song: I Want It That Way
+Album: The Hits--Chapter One
+URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
+========================================
+Artist: Backstreet Boys
+Song: I Want It That Way
+Album: The Hits--Chapter One
+URL: https://open.spotify.com/track/6e40mgJiCid5HRAGrbpGA6
+========================================
+Title: Aliens
+Released: 1986
+IMDB Rating: 8.4
+Country: USA
+Language: English
+Actors: Sigourney Weaver, Carrie Henn, Michael Biehn, Paul Reiser
+Plot: Ellen Ripley is rescued by a deep salvage team after being in hypersleep for 57 years. The moon that the Nostromo visited has been colonized, but contact is lost. This time, colonial marines have impressive firepower, but will that be enough?
+========================================

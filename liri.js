@@ -77,15 +77,15 @@ var doIt = function () {
       appendIt(showData)
     })
   } else if (youSay === "do-what-it-says") {
-    console.log("JUST DO IT")
+    // console.log("JUST DO IT")
     var whatItSaysArray = [];
     fs.readFile("random.txt", "utf-8", function (err, data) {
       if (err) {
         return console.log(err);
       }
-      console.log(data)
+      // console.log(data)
       whatItSaysArray = data.split(",");
-      console.log(whatItSaysArray)
+      // console.log(whatItSaysArray)
       youSay = whatItSaysArray[0];
       input = whatItSaysArray[1];
       console.log(youSay + " " + input);

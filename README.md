@@ -11,3 +11,10 @@ How to use:
 2. Then your result is passed back to you in the console!
 
 Should look like [This](screenshot1.PNG)
+or
+[This](screenshot2.PNG)
+or
+[THIS](screenshot3.PNG)
+OR
+
+[THIS!!!](screenshot4.PNG)
