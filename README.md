@@ -9,3 +9,5 @@ How to use:
 1. Enter 'node liri.js method "input"' into the CLI, where method is spotify-this-song, concert-this, movie-this, or do-what-it-says.
 
 2. Then your result is passed back to you in the console!
+
+Should look like [This](screenshot1.PNG)
