@@ -1,8 +1,8 @@
 var fs = require("fs")
 require('dotenv').config()
 var Spotify = require('node-spotify-api');
-var request = require('request');
 var moment = require('moment');
+var axios = require("axios")
 moment().format()
 var keys = require("./keys")
 
@@ -25,20 +25,33 @@ var doIt = function () {
   if (youSay === "concert-this") {
     if (!input) {input="Disturbed"}
     var queryUrl = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
-    request(queryUrl, function (error, response, body) {
-      if (error) {
-        console.log(error)
-      }
-      var newBody = JSON.parse(body)
+    axios.get(queryUrl).then(results => {
+      console.log(results)
+      var newBody = JSON.parse(results.body)
 
-      var showData = [
-        "Name: " + newBody[0].venue.name,
-        "Location: " + newBody[0].venue.city + ', ' + newBody[0].venue.region,
-        "Date: " + moment(newBody[0].datetime).format("MM/DD/YYYY")
-      ].join("\n");
-      console.log(showData)
-      appendIt(showData)
+        var showData = [
+          "Name: " + newBody[0].venue.name,
+          "Location: " + newBody[0].venue.city + ', ' + newBody[0].venue.region,
+          "Date: " + moment(newBody[0].datetime).format("MM/DD/YYYY")
+        ].join("\n");
+        console.log(showData)
+        appendIt(showData)
     })
+    
+    // , function (error, response, body) {
+    //   if (error) {
+    //     console.log(error)
+    //   }
+    //   var newBody = JSON.parse(body)
+
+    //   var showData = [
+    //     "Name: " + newBody[0].venue.name,
+    //     "Location: " + newBody[0].venue.city + ', ' + newBody[0].venue.region,
+    //     "Date: " + moment(newBody[0].datetime).format("MM/DD/YYYY")
+    //   ].join("\n");
+    //   console.log(showData)
+    //   appendIt(showData)
+    // })
   } else if (youSay === "spotify-this-song") {
     if (!input) {input="The Sign"}
     spotify.search({ type: "track", query: input, limit: 1 }, function (err, data) {
@@ -58,24 +71,41 @@ var doIt = function () {
   } else if (youSay === "movie-this") {
     var queryUrl = "http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy";
     if (!input) {input="Mr. Nobody"}
-    request(queryUrl, function (error, response, body) {
-      if (error) {
-        console.log(error)
-      }
-      var newBody = JSON.parse(body)
-      
+    axios.get(queryUrl).then(response => {
+      console.log(response)
+      var newBody = JSON.parse(response.body)
       var showData = [
-        "Title: " + newBody.Title,
-        "Released: " + newBody.Year,
-        "IMDB Rating: " + newBody.imdbRating,
-        "Country: " + newBody.Country,
-        "Language: " + newBody.Language,
-        "Actors: " + newBody.Actors,
-        "Plot: " + newBody.Plot
-      ].join("\n");
-      console.log(showData)
-      appendIt(showData)
+            "Title: " + newBody.Title,
+            "Released: " + newBody.Year,
+            "IMDB Rating: " + newBody.imdbRating,
+            "Country: " + newBody.Country,
+            "Language: " + newBody.Language,
+            "Actors: " + newBody.Actors,
+            "Plot: " + newBody.Plot
+          ].join("\n");
+          console.log(showData)
+          appendIt(showData)
     })
+
+    //  function (error, response, body) {
+    //   if (error) {
+    //     console.log(error)
+    //   }
+    //   var newBody = JSON.parse(body)
+      
+    //   var showData = [
+    //     "Title: " + newBody.Title,
+    //     "Released: " + newBody.Year,
+    //     "IMDB Rating: " + newBody.imdbRating,
+    //     "Country: " + newBody.Country,
+    //     "Language: " + newBody.Language,
+    //     "Actors: " + newBody.Actors,
+    //     "Plot: " + newBody.Plot
+    //   ].join("\n");
+    //   console.log(showData)
+    //   appendIt(showData)
+    // })
+
   } else if (youSay === "do-what-it-says") {
     // console.log("JUST DO IT")
     var whatItSaysArray = [];
